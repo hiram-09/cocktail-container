@@ -11,15 +11,19 @@ export class CocktailContainer extends LitElement {
         flex-direction: column;
         color: var(--cocktail-container-text-color, #000);
       }
+      .principal {
+        background-color: #C9ADA7;
+      }
       .container-cocktail{
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: 300px;
-          height: 300px;
+          width: 320px;
+          height: 360px;
           position: relative;
-          padding-top: 3em;
-          margin-top: 30px;
+          padding-top: 1em;
+          margin-top: 55px;
+          background: #22223b;
         }
         .container{
           display: flex;
@@ -38,6 +42,10 @@ export class CocktailContainer extends LitElement {
         }
         p {
           color: red;
+        }
+        p.NameContainer {
+          color:white;
+          font-weight: bold;
         }
         dile-modal p{
           font-weight: bold;
@@ -66,22 +74,24 @@ export class CocktailContainer extends LitElement {
     }
     render() {
             return html `
-        <h2>Cocktail APP</h2>
-        <lit-cocktail @response=${(e) => this.data = e.detail}></lit-cocktail>
-        <div class="container">
-          ${
-            this.data.map(item => html`
-              <div class="container-cocktail">
-                <img width="300em" src=${item.image}
-                @click="${() => {
-                    this.itemModal = item;
-                    this.shadowRoot.getElementById("modal").open();
-                  }}" >
-                <p class="Name">${item.name}</p>
+            <div class="principal">
+                <h2>Cocktail APP</h2>
+                <lit-cocktail @response=${(e) => this.data = e.detail}></lit-cocktail>
+                <div class="container">
+                  ${
+                    this.data.map(item => html`
+                      <div class="container-cocktail">
+                        <img width="300em" src=${item.image}
+                        @click="${() => {
+                            this.itemModal = item;
+                            this.shadowRoot.getElementById("modal").open();
+                          }}" >
+                        <p class="NameContainer">${item.name}</p>
+                      </div>
+                    `)
+                  }
+                </div>
               </div>
-            `)
-          }
-        </div>
         <dile-modal id="modal">
           <img width="250em" src=${this.itemModal.image}>
           <p class="Name">${this.itemModal.name}</p>
