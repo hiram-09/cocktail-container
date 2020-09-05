@@ -1,0 +1,21 @@
+{
+  "name": "cocktail-container",
+  "version": "0.0.0",
+  "description": "Webcomponent cocktail-container following open-wc recommendations",
+  "author": "cocktail-container",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.js",
+  "scripts": {
+    "start": "es-dev-server --app-index demo/index.html --node-resolve --open --watch"
+  },
+  "dependencies": {
+    "dile-modal": "^1.5.4",
+    "lit-cocktail": "git+https://github.com/arianaomi/lit-cocktail.git",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2"
+  },
+  "devDependencies": {
+    "es-dev-server": "^1.23.0"
+  }
+}
