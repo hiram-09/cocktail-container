@@ -1,6 +1,6 @@
 import { html, css, LitElement } from 'lit-element';
-import '../node_modules/lit-cocktail/lit-cocktail.js';
-import { DileModal } from '../node_modules/dile-modal/dile-modal.js';
+import 'lit-cocktail/lit-cocktail.js';
+import 'dile-modal/dile-modal.js';
 
 export class CocktailContainer extends LitElement {
     static get styles() {
