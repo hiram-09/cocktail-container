@@ -36,8 +36,18 @@ export class CocktailContainer extends LitElement {
           font-family: cursive;
           font-size: 4em;
         }
-        dile-modal {
-          display: flex;
+        p {
+          color: red;
+        }
+        dile-modal p{
+          font-weight: bold;
+          color: black;
+        }
+        p.Name{
+          font-weight: bold;
+          color: black;
+          font-size: 1.5em;
+          text-align: center;
         }
     `;
     }
@@ -67,14 +77,14 @@ export class CocktailContainer extends LitElement {
                     this.itemModal = item;
                     this.shadowRoot.getElementById("modal").open();
                   }}" >
-                <p>${item.name}</p>
+                <p class="Name">${item.name}</p>
               </div>
             `)
           }
         </div>
         <dile-modal id="modal">
           <img width="250em" src=${this.itemModal.image}>
-          <p>${this.itemModal.name}</p>
+          <p class="Name">${this.itemModal.name}</p>
           <p>Ingredients</p>
           <ul>
           ${this.itemModal.ingredients?.map((i) => html`${i ? html`<li>${i}</li>` : html``}`)}
@@ -82,7 +92,7 @@ export class CocktailContainer extends LitElement {
           ${
             this.itemModal.preparation ? html`
               <p>Preparation</p>
-              <p>${this.itemModal.preparation}</p>
+              <label>${this.itemModal.preparation}</label>
             ` : html``
           }
         </dile-modal>
